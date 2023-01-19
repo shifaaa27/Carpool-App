@@ -8,7 +8,7 @@ const Home = () => {
           <div class="w-1/2 flex items-center justify-center">
             <div
               class="w-full h-full"
-              style={{ background: `url(${IMAGE})` }}>
+              style={{ background: `url(${IMAGE})`, backgroundRepeat: "no-repeat" }}>
     
             </div>
           </div>
