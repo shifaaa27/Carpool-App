@@ -2,6 +2,7 @@ import "./styles/tailwind.output.css";
 import {BrowserRouter,Route,Routes} from "react-router-dom";
 import Home from "./Home";
 import Login from "./Login";
+import React, { Component }  from 'react';
 
 const App = () => {
   return(
