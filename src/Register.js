@@ -1,6 +1,10 @@
 import {Link} from 'react-router-dom';
 const IMAGE =
+<<<<<<< HEAD
   "https://w0.peakpx.com/wallpaper/418/886/HD-wallpaper-amsterdam-city-digital-dimdom-earth-europe-map-maps-netherlands-streets-travel-design.jpg"
+=======
+  "https://i.ibb.co/qJnSkQS/finalmaps.jpg"
+>>>>>>> 488ca6aa89afa18103639228b479d37748bd5187
 const Register = () => {
     return (
         <div className="w-screen h-screen bg-white flex overflow-hidden">
@@ -10,6 +14,7 @@ const Register = () => {
             style={{ background: `url(${IMAGE})`, backgroundRepeat: "no-repeat" }}>
           </div>
         </div>
+<<<<<<< HEAD
         <div class="w-1/2  items-center justify-center bg-gradient-to-b from-[#B6D997] to-[#A3C3C2] p-24 py-24 overflow-y-auto">
           <div class="bg-white px-8 py-4 rounded-lg w-full">
             <div class="h-10 flex w-full">
@@ -19,6 +24,17 @@ const Register = () => {
               <button class="text-lg px-4 border-2 border-transparent border-b-[#557199]"> <Link to="/Register">Register</Link></button>
             </div>
             <div class="py-7 w-25  h-10 border-5 items-center justify-center"> Name: </div>
+=======
+        <div class="w-1/2 items-center justify-center bg-gradient-to-b from-[#B6D997] to-[#A3C3C2] p-24 py-24 overflow-y-auto">
+          <div class="bg-white px-8 py-4 rounded-lg w-full">
+            <div class="h-10 flex w-full">
+              <button class="text-lg px-4 border-2 border-transparent">
+                <Link to="/Home">Login</Link>
+              </button>
+              <button class="text-lg px-4 border-2 border-transparent border-b-[#557199]"> <Link to="/Register">Register</Link></button>
+            </div>
+            <div class="py-7 w-25 h-10 border-5 items-center justify-center"> Name: </div>
+>>>>>>> 488ca6aa89afa18103639228b479d37748bd5187
               <input type="name" name="name" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="Enter your name" />
             <div class="py-7 w-25 h-10 border-5 items-center justify-center"> Roll number: </div>
               <input type="rno" name="rno" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="Enter your roll number" />
@@ -36,7 +52,11 @@ const Register = () => {
             </button>
             </div>
             <div class="flex items-center justify-center mt-4 mb-8">
+<<<<<<< HEAD
             <p class="underline"> <Link to="/Homepg">Login here</Link></p>
+=======
+            <p class="underline"> <Link to="/Home">Login here</Link></p>
+>>>>>>> 488ca6aa89afa18103639228b479d37748bd5187
             </div>
           </div>
         </div>
@@ -44,4 +64,8 @@ const Register = () => {
     )
 }
 
+<<<<<<< HEAD
 export default Register;
+=======
+export default Register
+>>>>>>> 488ca6aa89afa18103639228b479d37748bd5187
