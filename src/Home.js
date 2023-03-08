@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom';
 import React, { Component }  from 'react';
 const IMAGE =
-  "https://i.ibb.co/qJnSkQS/finalmaps.jpg"
+  "https://i.ibb.co/tYmLdDd/Untitled-design.png"
 const Home = () => {
     return (
         <div className="w-screen h-screen bg-white flex">
@@ -25,7 +25,8 @@ const Home = () => {
               <input type="password" name="password" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="Enter your password" />
               <div class="flex items-center justify-center">
               <button class="mt-8 bg-transparent hover:bg-[#7FA6B7] text-[#7FA6B7] font-semibold hover:text-white py-2 px-4 border border-[#7FA6B7] hover:border-transparent rounded">
-                Submit
+              <Link to="/ineedride">Submit</Link>
+                
               </button>
               </div>
               <div class="flex items-center justify-center mt-4 mb-8">
