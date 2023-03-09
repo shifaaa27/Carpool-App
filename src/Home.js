@@ -1,17 +1,10 @@
 import {Link} from 'react-router-dom';
 import React, { Component }  from 'react';
-const IMAGE =
-  "https://i.ibb.co/tYmLdDd/Untitled-design.png"
+import bg_img from './images/bg-img.jpeg'
 const Home = () => {
     return (
         <div className="w-screen h-screen bg-white flex">
-          <div class="w-1/2 flex items-center justify-center">
-            <div
-              class="w-full h-full"
-              style={{ background: `url(${IMAGE})`, backgroundRepeat: "no-repeat" }}>
-            </div>
-          </div>
-          <div class="w-1/2 items-center justify-center bg-gradient-to-b from-[#B6D997] to-[#A3C3C2] p-16">
+        <div class="w-1/2 items-center justify-center bg-gradient-to-b from-[#B6D997] to-[#A3C3C2] p-24">
             <div class="bg-white px-8 py-4 rounded-lg w-full">
               <div class="h-10 flex w-full">
                 <button class="text-lg px-4 border-b-[#557199] border-2 border-transparent">
@@ -34,6 +27,14 @@ const Home = () => {
               </div>
             </div>
           </div>
+          <div class="flex w-1/2">
+          <img  src={bg_img} alt="bgimg"/>
+            {/* <div
+              class=" w h-full bg-contain bg-center"
+              style={{ background: `url(${IMAGE})` }}>
+            </div> */}
+          </div>
+          
         </div>
       );
 }

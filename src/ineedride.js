@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Map from "mapmyindia-react";
 const IMAGE =
   "https://i.ibb.co/tYmLdDd/Untitled-design.png";
 
@@ -9,10 +10,16 @@ const ineedride = () => {
         <div
           class="w-screen h-screen"
           style={{ background: `url(${IMAGE})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }}>
-          <div class="">
+          <div class="">  
+          
+          
+
+          
+
           <button class="m-4 bg-white hover:bg-[#7FA6B7] text-[#7FA6B7] font-semibold hover:text-white py-2 px-4 border border-[#7FA6B7] hover:border-transparent rounded">
               <Link to="/accDetails">Account Details</Link>
             </button>
+            
           
             <div class="w-1/4 absolute bottom-16 right-8 bg-white px-10 py-10 rounded-lg">
               <button class="mt-2 mr-2 bg-[#7FA6B7] hover:bg-[#7FA6B7] text-[#020608] font-semibold hover:text-white py-2 px-3 border border-[#000000] hover:border-transparent rounded">

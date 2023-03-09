@@ -1,14 +1,14 @@
 import {Link} from 'react-router-dom';
-const IMAGE =  "https://i.ibb.co/qJnSkQS/finalmaps.jpg"
+import bg_img from './images/bg-img.jpeg'
+
+const IMAGE =  "https://www.linkpicture.com/q/WhatsApp-Image-2023-03-09-at-14.01.42.jpeg"
+
 
 const Register = () => {
     return (
         <div className="w-screen h-screen bg-white flex overflow-hidden">
-        <div class="w-1/2 flex items-center justify-center">
-          <div
-            class="w-full h-full"
-            style={{ background: `url(${IMAGE})`, backgroundRepeat: "no-repeat" }}>
-          </div>
+        <div class="w-1/2 flex ">
+        <img  src={bg_img} alt="bgimg"/>
         </div>
         <div class="w-1/2 items-center justify-center bg-gradient-to-b from-[#B6D997] to-[#A3C3C2] p-24 py-24 overflow-y-auto">
           <div class="bg-white px-8 py-4 rounded-lg w-full">
