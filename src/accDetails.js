@@ -4,14 +4,14 @@ import axios from 'axios';
 
 const AccDetails = () => {
 
-  const roll = localStorage.getItem("roll");
+  const uname = localStorage.getItem("uname");
   const [data, setData] = useState({});
 
   useEffect(() => {
-    axios.get(`http://localhost:3002/auth/${roll}`).then((res) => {
+    axios.get(`http://localhost:3002/auth/${uname}`).then((res) => {
       setData(res.data);
     });
-  }, [roll])
+  }, [uname])
 
   return (
     <div className="w-screen h-screen bg-white flex">

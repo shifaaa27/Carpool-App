@@ -23,7 +23,7 @@ const App = () => {
       <Route path="/rideFound" element={<RideFound />}/>
       <Route path="/accDetails" element={<AccDetails />}/>
       <Route path="/rideHistory" element={<RideHistory />}/>
-      <Route path="/ineedride" element={<Ineedride />}/>
+      <Route path="/ineedride/:uname" element={<Ineedride />}/>
 
       
     </Routes>
