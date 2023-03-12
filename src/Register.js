@@ -1,47 +1,170 @@
-import {Link} from 'react-router-dom';
-import bg_img from './images/bg-img.jpeg'
+import { Link, useNavigate } from "react-router-dom";
+import bg_img from "./images/bg-img.jpeg";
+import React, { useState } from "react";
+import axios from 'axios';
 
-const IMAGE =  "https://www.linkpicture.com/q/WhatsApp-Image-2023-03-09-at-14.01.42.jpeg"
+const IMAGE =
+  "https://www.linkpicture.com/q/WhatsApp-Image-2023-03-09-at-14.01.42.jpeg";
+
 
 
 const Register = () => {
-    return (
-        <div className="w-screen h-screen bg-white flex overflow-hidden">
-        <div class="w-1/2 flex ">
-        <img  src={bg_img} alt="bgimg"/>
-        </div>
-        <div class="w-1/2 items-center justify-center bg-gradient-to-b from-[#B6D997] to-[#A3C3C2] p-24 py-24 overflow-y-auto">
-          <div class="bg-white px-8 py-4 rounded-lg w-full">
-            <div class="h-10 flex w-full">
-              <button class="text-lg px-4 border-2 border-transparent">
-                <Link to="/Home">Login</Link>
-              </button>
-              <button class="text-lg px-4 border-2 border-transparent border-b-[#557199]"> <Link to="/Register">Register</Link></button>
-            </div>
-            <div class="py-7 w-25 h-10 border-5 items-center justify-center"> Name: </div>
-              <input type="name" name="name" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="Enter your name" />
-            <div class="py-7 w-25 h-10 border-5 items-center justify-center"> Roll number: </div>
-              <input type="rno" name="rno" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="Enter your roll number" />
-            <div class="py-7 w-25 h-10 border-5 items-center justify-center"> Vehicle Number: </div> 
-                <input type="vno" name="vno" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="Enter your vehicle number" />
-            <div class="py-7 w-25 h-10 border-5 items-center justify-center"> Contact number: </div>
-              <input type="cno" name="cno" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="Enter your contact number" />
-            <div class="py-7 w-25 h-10 border-5 items-center justify-center"> Username: </div>
-              <input type="uname" name="uname" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="Enter username" />
-            <div class="py-7 w-25 h-10 border-5 items-center justify-center"> Password: </div>
-              <input type="pass" name="pass" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="Enter password (include special characters)" />
-            <div class="flex items-center justify-center">
-            <button class="mt-8 bg-transparent hover:bg-[#7FA6B7] text-[#7FA6B7] font-semibold hover:text-white py-2 px-4 border border-[#7FA6B7] hover:border-transparent rounded">
+  let name,value;
+  const navigate = useNavigate();
+  const handleClick =()=>{
+    // alert("Submitted");
+    console.log(user.name);
+    console.log(user.cno);
+    console.log(user.vno);
+    console.log(user.pass);
+    console.log(user.rno);
+    console.log(user.uname);
+
+    axios.post("http://localhost:3002/auth", {
+      name: user.name,
+      rno: user.rno,
+      pass: user.pass,
+      vno: user.vno,
+      uname: user.uname,
+      cno:user.cno
+
+    })
+
+    alert("User Created");
+    localStorage.setItem("roll", user.rno);
+
+    navigate("/accDetails");
+    
+  }
+  const handleInputs = (e) => {
+    console.log(e)
+    name=e.target.name;
+    value=e.target.value;
+    setUser({...user,[name]:value});
+
+  }
+  const [user, setUser] = useState({
+    name: "",
+    rno: "",
+    vno: "",
+    cno: "",
+    uname: "",
+    pass: "",
+  });
+
+  return (
+    <div className="w-screen h-screen bg-gradient-to-r from-[#ffffff] to-[#bbbbbb] flex overflow-auto">
+      <div class="w-1/2 flex justify-center items-center ">
+      <p className="text-transparent bg-clip-text bg-gradient-to-r from-[#000000] to-[#584c4c] font-sans font-semibold text-9xl">CARPOOL</p>
+      <p class="text-bold text-8xl">share the ride,share the cost and make a difference with every mile </p> 
+
+        {/* <img src={bg_img} alt="bgimg" /> */}
+      </div>
+      <div class="w-1/2 items-center justify-center bg-gradient-to-l from-[#000000] to-[#dddddd] p-24  overflow-y-auto">
+        <div class="bg-white px-8 py-4 rounded-lg w-full">
+          <div class="h-10 flex w-full">
+            <button class="text-lg px-4 border-2 border-transparent">
+              <Link to="/Home">Login</Link>
+            </button>
+            <button class="text-lg px-4 border-2 border-transparent border-b-[#000000]">
+              {" "}
+              <Link to="/Register">Register</Link>
+            </button>
+          </div>
+          <div class="py-7 w-25 h-10 border-5 items-center justify-center">
+            {" "}
+            Name:{" "}
+          </div>
+          <input
+            type="name"
+            name="name"
+            autoComplete="off"
+            value={user.name}
+            onChange={handleInputs}
+            class="mt-1 px-3 py-2 bg-white border shadow-sm border-black placeholder-black focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+            placeholder="Enter your name"
+          />
+          <div class="py-7 w-25 h-10 border-5 items-center justify-center">
+            {" "}
+            Roll number:{" "}
+          </div>
+          <input
+            type="rno"
+            name="rno"
+            autoComplete="off"
+            value={user.rno}
+            onChange={handleInputs}
+            class="mt-1 px-3 py-2 bg-white border shadow-sm  border-black placeholder-black focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+            placeholder="Enter your roll number"
+          />
+          <div class="py-7 w-25 h-10 border-5 items-center justify-center">
+            {" "}
+            Vehicle Number:{" "}
+          </div>
+          <input
+            type="vno"
+            name="vno"
+            autoComplete="off"
+            value={user.vno}
+            onChange={handleInputs}
+            class="mt-1 px-3 py-2 bg-white border shadow-sm  border-black placeholder-black focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+            placeholder="Enter your vehicle number"
+          />
+          <div class="py-7 w-25 h-10 border-5 items-center justify-center">
+            {" "}
+            Contact number:{" "}
+          </div>
+          <input
+            type="cno"
+            name="cno"
+            autoComplete="off"
+            value={user.cno}
+            onChange={handleInputs}
+            class="mt-1 px-3 py-2 bg-white border shadow-sm border-black placeholder-black focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+            placeholder="Enter your contact number"
+          />
+          <div class="py-7 w-25 h-10 border-5 items-center justify-center">
+            {" "}
+            Username:{" "}
+          </div>
+          <input
+            type="uname"
+            name="uname"
+            autoComplete="off"
+            value={user.uname}
+            onChange={handleInputs}
+            class="mt-1 px-3 py-2 bg-white border shadow-sm border-black placeholder-black focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+            placeholder="Enter username"
+          />
+          <div class="py-7 w-25 h-10 border-5 items-center justify-center">
+            {" "}
+            Password:{" "}
+          </div>
+          <input
+            type="pass"
+            name="pass"
+            autoComplete="off"
+            value={user.pass}
+            onChange={handleInputs}
+            class="mt-1 px-3 py-2 bg-white border shadow-sm border-black placeholder-black  focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+            placeholder="Enter password (include special characters)"
+          />
+          <div class="flex items-center justify-center">
+            <button class="mt-8 bg-transparent hover:bg-[#000000] text-[#000000] font-semibold hover:text-white py-2 px-4 border border-[#000000] hover:border-transparent rounded" onClick={handleClick}>
+              
               Submit
             </button>
-            </div>
-            <div class="flex items-center justify-center mt-4 mb-8">
-            <p class="underline"> <Link to="/Home">Login here</Link></p>
-            </div>
+          </div>
+          <div class="flex items-center justify-center mt-4 mb-8">
+            <p class="underline">
+              {" "}
+              <Link to="/Home">Login here</Link>
+            </p>
           </div>
         </div>
       </div>
-    )
-}
+    </div>
+  );
+};
 
 export default Register;

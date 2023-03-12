@@ -1,8 +1,11 @@
 import {Link} from 'react-router-dom';
-import React, { Component }  from 'react';
+import React, {useState }  from 'react';
 import bg_img from './images/bg-img.jpeg'
 const Home = () => {
-    return (
+    const [user,setUser]=useState()
+
+      return (
+
         <div className="w-screen h-screen bg-white flex">
         <div class="w-1/2 items-center justify-center bg-gradient-to-b from-[#B6D997] to-[#A3C3C2] p-24">
             <div class="bg-white px-8 py-4 rounded-lg w-full">
@@ -27,7 +30,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div class="flex w-1/2">
+          <div class="w-1/2 flex">
           <img  src={bg_img} alt="bgimg"/>
             {/* <div
               class=" w h-full bg-contain bg-center"
