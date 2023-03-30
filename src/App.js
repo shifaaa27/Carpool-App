@@ -7,6 +7,8 @@ import RideFound from "./rideFound";
 import AccDetails from "./accDetails";
 import RideHistory from "./rideHistory";
 import Ineedride from "./ineedride";
+import Idriving from "./idriving";
+import Help from "./help";
 import React, { Component }  from 'react';
 
  
@@ -23,7 +25,9 @@ const App = () => {
       <Route path="/rideFound" element={<RideFound />}/>
       <Route path="/accDetails" element={<AccDetails />}/>
       <Route path="/rideHistory" element={<RideHistory />}/>
+      <Route path="/idriving" element={<Idriving />}/>
       <Route path="/ineedride" element={<Ineedride />}/>
+      <Route path="/help" element={<Help />}/>
 
       
     </Routes>
