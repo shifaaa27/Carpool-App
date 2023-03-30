@@ -9,6 +9,7 @@ const IMAGE =
 const Register = () => {
   let name, value;
   const navigate = useNavigate();
+  
   const handleClick = () => {
     // alert("Submitted");
     console.log(user.name);
@@ -48,12 +49,12 @@ const Register = () => {
   });
 
   return (
-    <div className="w-screen h-screen bg-gradient-to-r from-[#ffffff] to-[#bbbbbb] flex overflow-auto">
-      <div class="w-1/2 flex flex-col justify-center items-center ">
-        <p className="text-transparent bg-clip-text bg-gradient-to-r from-[#B6D997] to-[#A3C3C2] font-sans font-semibold text-9xl">
+    <div className="w-screen h-screen bg-gradient-to-r from-[#ffffff] to-[#bbbbbb] flex overflow-auto transition-transform">
+      <div class="w-1/2 flex flex-col justify-center items-center hover:transition-all ">
+        <p className="text-transparent bg-clip-text bg-gradient-to-r from-[#B6D997] to-[#A3C3C2] font-sans font-semibold text-9xl transition ease-in-out delay-150">
           CARPOOL
         </p>
-        <p class="text-bold text-1xl">
+        <p class="text-bold text-1xl ">
           share the ride,share the cost and make a difference with every mile{" "}
         </p>
 
@@ -150,7 +151,7 @@ const Register = () => {
           />
           <div class="flex items-center justify-center">
             <button
-              class="mt-8 bg-transparent hover:bg-[#000000] text-[#000000] font-semibold hover:text-white py-2 px-4 border border-[#000000] hover:border-transparent rounded"
+              class="transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none mt-8 bg-transparent hover:bg-[#000000] text-[#000000] font-semibold hover:text-white py-2 px-4 border border-[#000000] hover:border-transparent rounded"
               onClick={handleClick}
             >
               Submit

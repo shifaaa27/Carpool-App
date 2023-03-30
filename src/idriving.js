@@ -1,49 +1,55 @@
-import { useState, useEffect } from "react";
+import { useState,useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Map from "mapmyindia-react";
-import loc from "./location.json";
+
 import axios from "axios";
 
 const IMAGE = "https://i.ibb.co/tYmLdDd/Untitled-design.png";
 
 const Ineedride = () => {
-  const [selectedLocation, setSelectedLocation] = useState("");
+    const [selectedLocation, setSelectedLocation] = useState("");
 
-  let name, value;
-  const uname = localStorage.getItem("uname");
-  const navigate = useNavigate();
-
-  const [data, setData] = useState({});
-  useEffect(() => {
-    axios.get(`http://localhost:3002/auth/${uname}`).then((res) => {
-      setData(res.data);
-    });
-  }, [uname]);
-
-  const handleClick = () => {
-    // alert("Submitted");
-
-    axios.post("http://localhost:3002/ride/ineedride", {
-      pickuplocation: user.pickuplocation,
-      droplocation: user.droplocation,
+    let name, value;
+    const uname = localStorage.getItem("uname");
+    const navigate = useNavigate();
+  
+    const [data, setData] = useState({});
+    useEffect(() => {
+      axios.get(`http://localhost:3002/auth/${uname}`).then((res) => {
+        setData(res.data);
+      });
+    }, [uname]);
+  
+    const handleClick = () => {
+      // alert("Submitted");
+  
+      axios.post("http://localhost:3002/give/uneedride", {
+        pickuplocation: user.pickuplocation,
+        droplocation: user.droplocation,
+        uname: uname,
+      }).then((res)=>{
+        alert("Ridefound")
+        
+        
+      }).catch((err)=> {
+        alert("NoRides")
+        console.log("npno",err.message);
+      })
+  
+      alert("setlocation");
+      localStorage.setItem("uname", user.uname);
+    };
+    const handleInputs = (e) => {
+      setSelectedLocation(e.target.value);
+      console.log(e);
+      name = e.target.name;
+      value = e.target.value;
+      setUser({ ...user, [name]: value });
+    };
+    const [user, setUser] = useState({
+      pickuplocation: "",
+      droplocation: "",
       uname: uname,
     });
-
-    alert("setlocation");
-    localStorage.setItem("uname", user.uname);
-  };
-  const handleInputs = (e) => {
-    setSelectedLocation(e.target.value);
-    console.log(e);
-    name = e.target.name;
-    value = e.target.value;
-    setUser({ ...user, [name]: value });
-  };
-  const [user, setUser] = useState({
-    pickuplocation: "",
-    droplocation: "",
-    uname: uname,
-  });
 
   const locations1 = [
     "Avinashi Road",
@@ -133,35 +139,31 @@ const Ineedride = () => {
   ];
 
   return (
+
     <div>
       <div class="w-full flex item-center justify-center">
         <div
-        
-          class="w-screen h-screen bg-gradient-to-b from-[#B6D997] to-[#A3C3C2] p-16"
-          
-          
+          class="w-screen h-screen"
+          style={{
+            background: `url(${IMAGE})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
         >
-        
-        
           {}
-          
-          <div class=" ">
+          <div class="">
             <button class="m-4 bg-white hover:bg-[#7FA6B7] text-[#7FA6B7] font-semibold hover:text-white py-2 px-4 border border-[#7FA6B7] hover:border-transparent rounded">
               <Link to="/accDetails">Account Details</Link>
             </button>
-           
 
-            
-            <div class="flex py-20 justify-center items-center">
-            <div class="w-1/3  justify-center items-center bg-white px-10 py-10 rounded-lg">
-              <button class="mt-2 mr-2  hover:bg-[#7FA6B7] text-[#020608] font-semibold hover:text-white py-2 px-3 border border-[#000000] hover:border-transparent rounded">
-                I need a ride
+            <div class="w-1/4 absolute bottom-16 right-8 bg-white px-10 py-10 rounded-lg">
+              <button class="mt-2 mr-2 bg-[#7FA6B7] hover:bg-[#7FA6B7] text-[#020608] font-semibold hover:text-white py-2 px-3 border border-[#000000] hover:border-transparent rounded">
+                <Link to="/ineedride">I need a ride</Link>
               </button>
-              
-              <button class="mt-2 mx-2  bg-[#7FA6B7] bg-transparent hover:bg-[#7FA6B7] text-[#010405] font-semibold hover:text-white py-2 px-3 border border-[#000000] hover:border-transparent rounded" >
-                <Link to="/idriving">I am driving</Link>
+              <button class="mt-2 mx-2 bg-transparent hover:bg-[#7FA6B7] text-[#010405] font-semibold hover:text-white py-2 px-3 border border-[#000000] hover:border-transparent rounded">
+                I am driving
               </button>
-              
               <div class="py-2 w-18 h-3 border-5 items-center justify-center"></div>
               <select
                 name="pickuplocation"
@@ -197,10 +199,9 @@ const Ineedride = () => {
                   class="transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none mt-8 bg-transparent hover:bg-[#000000] text-[#000000] font-semibold hover:text-white py-2 px-4 border border-[#000000] hover:border-transparent rounded"
                   onClick={handleClick}
                 >
-                  Find me a ride!
+                  Find me Passengers!
                 </button>
               </div>
-            </div>
             </div>
           </div>
         </div>

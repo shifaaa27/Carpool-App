@@ -1,10 +1,10 @@
-import { Link , useNavigate,useParams} from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import React, { useState } from "react";
 import bg_img from "./images/bg-img.jpeg";
 import axios from "axios";
 
 const Home = () => {
-  let name,value;
+  let name, value;
   const navigate = useNavigate();
 
   const handleInputs = (e) => {
@@ -14,27 +14,25 @@ const Home = () => {
     setUser({ ...user, [name]: value });
   };
   const [user, setUser] = useState({
-    
     uname: "",
     pass: "",
   });
   const handleClick = () => {
-    
-    console.log("bumty",user.uname , user.pass)
+    console.log("bumty", user.uname, user.pass);
     axios.post("http://localhost:3002/auth/login", {
-      uname: user.uname,
-      pass: user.pass,
-    }).then((res)=>{
-      alert("Successfull Login")
-      localStorage.setItem("uname", user.uname);
-      navigate(`/ineedride/${user.uname}`);
-    }).catch((err)=> {
-      alert("Invalid Login")
-      console.log("npno",err.message);
-    })
-
-    
-    
+        uname: user.uname,
+        pass: user.pass,
+      })
+      .then((res) => {
+        alert("Successfull Login");
+        localStorage.setItem("uname", user.uname);
+        
+        navigate("/ineedride");
+      })
+      .catch((err) => {
+        alert("Invalid Login");
+        console.log("npno", err.message);
+      });
 
     // navigate("/ineedride");
   };
@@ -71,7 +69,6 @@ const Home = () => {
           <input
             type="pass"
             name="pass"
-
             autoComplete="off"
             value={user.pass}
             onChange={handleInputs}
@@ -79,8 +76,10 @@ const Home = () => {
             placeholder="Enter your password"
           />
           <div class="flex items-center justify-center">
-            <button class="mt-8 bg-transparent hover:bg-[#000000] text-[#000000] font-semibold hover:text-white py-2 px-4 border border-[#000000] hover:border-transparent rounded"
-            onClick={handleClick}>
+            <button
+              class="mt-8 bg-transparent hover:bg-[#000000] text-[#000000] font-semibold hover:text-white py-2 px-4 border border-[#000000] hover:border-transparent rounded"
+              onClick={handleClick}
+            >
               Submit
             </button>
           </div>
@@ -92,9 +91,12 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div class="w-1/2 flex bg-gradient-to-l from-[#ffffff] to-[#dedede] justify-center items-center">
+      <div class="w-1/2 flex flex-col bg-gradient-to-l from-[#ffffff] to-[#dedede] justify-center items-center">
         <p className="text-transparent bg-clip-text bg-gradient-to-l from-[#B6D997] to-[#A3C3C2] font-sans font-semibold text-9xl">
           CARPOOL
+        </p>
+        <p class="text-bold text-1xl ">
+          share the ride,share the cost and make a difference with every mile{" "}
         </p>
         {/* <img  src={bg_img} alt="bgimg"/> */}
         {/* <div

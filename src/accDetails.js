@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 
+
 const AccDetails = () => {
 
   const uname = localStorage.getItem("uname");
@@ -16,6 +17,7 @@ const AccDetails = () => {
   return (
     <div className="w-screen h-screen bg-white flex">
       <div class="w-full flex items-center justify-center bg-gradient-to-b from-[#B6D997] to-[#A3C3C2] p-16">
+      
         <div class="bg-white px-8 py-4 rounded-lg w-full flex flex-row ">
           <div class="bg-gray-50 flex flex-col items-center  w-1/3 ">
             
@@ -40,7 +42,7 @@ const AccDetails = () => {
 
             </button>
             <button class=" w-96 py-2 bg-gray-50 font-bold  hover:not-italic tracking-widest  hover:bg-neutral-500 hover:text-stone-50">
-              Help
+              <Link to ="/help">Help</Link>
             </button>
             <div class="px-4 mt-20">
               <button class="mt-4 px-3 py-2 rounded-not  bg-red-300 placeholder-slate-400 hover:bg-red-600 hover:rounded-full hover:text-white">
@@ -91,7 +93,7 @@ const AccDetails = () => {
             </label>
             <label class="mt-4 block px-4">
               <span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
-                Username Number
+                Username 
               </span>
               <p class="font-black  italic hover:not-italic tracking-widest ">
               {data.uname}

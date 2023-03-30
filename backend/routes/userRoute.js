@@ -77,6 +77,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
+
 router.post("/register", async (req, res) => {
   const { name, pass, rno, vno, uname, cno } = req.body;
 
