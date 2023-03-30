@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Map from "mapmyindia-react";
 const IMAGE =
-  "https://i.ibb.co/tYmLdDd/Untitled-design.png";
+  "https://i.ibb.co/bgJcj6s/bgmap.png";
 
 const ineedride = () => {
   return (
